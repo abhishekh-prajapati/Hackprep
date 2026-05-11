@@ -34,7 +34,7 @@ export class ProjectsController {
   }
 
   @Patch(':id')
-  update(@Req() req, @Param('id') id: string, @Body() body: { title?: string; description?: string; isCompleted?: boolean }) {
+  update(@Req() req, @Param('id') id: string, @Body() body: { title?: string; description?: string; status?: string }) {
     return this.projectsService.update(id, req.user.id, body);
   }
 
