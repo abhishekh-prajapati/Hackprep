@@ -33,6 +33,9 @@ import { Task } from './tasks/task.entity';
           ssl: {
             rejectUnauthorized: false,
           },
+          extra: {
+            max: 1,
+          },
         };
       },
       inject: [ConfigService],
