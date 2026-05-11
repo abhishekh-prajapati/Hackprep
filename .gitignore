@@ -35,3 +35,6 @@ workspace_extract/
 temp_code/
 temp_resources/
 code/
+
+.vercel
+.env*.local
