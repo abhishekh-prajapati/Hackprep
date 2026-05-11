@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #FF6B00;
+  --color-brand-black: #000000;
+  --color-brand-white: #FFFFFF;
+  --color-brand-offwhite: #FAFAFA;
+  --color-brand-grey: #737373;
+  --color-brand-border: #E5E5E5;
+  
+  /* Mapping old names to new colors for compatibility during transition */
+  --color-arctic-navy: var(--color-brand-black);
+  --color-arctic-blue: var(--color-brand-orange);
+  --color-arctic-cyan: #FFB37A; /* Soft orange accent */
+  --color-arctic-canvas: var(--color-brand-offwhite);
+  --color-arctic-surface: var(--color-brand-white);
+  --color-arctic-text: var(--color-brand-black);
+  --color-arctic-grey: var(--color-brand-grey);
+  --color-arctic-border: var(--color-brand-border);
+  
+  --font-sans: var(--font-geist-sans), Inter, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #000000;
+  
+  /* Fallback CSS variables */
+  --brand-orange: #FF6B00;
+  --brand-black: #000000;
+  --brand-white: #FFFFFF;
+  
+  --arctic-navy: var(--brand-black);
+  --arctic-blue: var(--brand-orange);
+  --arctic-canvas: #FAFAFA;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-orange);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E66000; /* Darker orange */
+}
