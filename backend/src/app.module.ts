@@ -18,19 +18,23 @@ import { Task } from './tasks/task.entity';
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        host: configService.get<string>('DB_HOST'),
-        port: configService.get<number>('DB_PORT'),
-        username: configService.get<string>('DB_USERNAME'),
-        password: configService.get<string>('DB_PASSWORD'),
-        database: configService.get<string>('DB_NAME'),
-        entities: [User, Project, Task],
-        synchronize: true, // Only for development
-        ssl: {
-          rejectUnauthorized: false,
-        },
-      }),
+      useFactory: (configService: ConfigService) => {
+        const databaseUrl = configService.get<string>('DATABASE_URL');
+        return {
+          type: 'postgres',
+          url: databaseUrl,
+          host: !databaseUrl ? configService.get<string>('DB_HOST') : undefined,
+          port: !databaseUrl ? configService.get<number>('DB_PORT') : undefined,
+          username: !databaseUrl ? configService.get<string>('DB_USERNAME') : undefined,
+          password: !databaseUrl ? configService.get<string>('DB_PASSWORD') : undefined,
+          database: !databaseUrl ? configService.get<string>('DB_NAME') : undefined,
+          entities: [User, Project, Task],
+          synchronize: true, // Only for development
+          ssl: {
+            rejectUnauthorized: false,
+          },
+        };
+      },
       inject: [ConfigService],
     }),
     CommonModule,
