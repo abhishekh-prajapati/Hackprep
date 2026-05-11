@@ -85,7 +85,7 @@ export default function OnboardingPage() {
   };
 
   const updateExperience = (id: string, field: string, value: string) => {
-    setExperiences(experiences.map(exp => exp.id === id ? { ...exp, [field]: value } : exp));
+    setExperiences(experiences.map((exp: any) => exp.id === id ? { ...exp, [field]: value } : exp));
   };
 
   const handleProofUpload = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
@@ -201,7 +201,7 @@ export default function OnboardingPage() {
                 {SUGGESTED_SKILLS.map(s => (
                   <button
                     key={s}
-                    onClick={() => setSkills(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s])}
+                    onClick={() => setSkills(prev => prev.includes(s) ? prev.filter((x: string) => x !== s) : [...prev, s])}
                     className={cn(
                       "rounded-xl px-4 py-2.5 text-[10px] font-black uppercase tracking-widest transition-all border",
                       skills.includes(s)
@@ -251,7 +251,7 @@ export default function OnboardingPage() {
             
             {experiences.length > 0 ? (
               <div className="space-y-4 max-h-[40vh] overflow-y-auto pr-2 scrollbar-hide">
-                {experiences.map(exp => (
+                {experiences.map((exp: any) => (
                   <div key={exp.id} className="rounded-2xl border border-arctic-border bg-white p-5 space-y-4 shadow-sm">
                     <input 
                       placeholder="Event or Project Name"

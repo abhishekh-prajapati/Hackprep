@@ -8,9 +8,12 @@ export interface Task {
   reactions: number;
   hasLiked?: boolean;
   assignee?: string;
+  assigneePhoto?: string | null;
+  projectId?: string;
   isNew?: boolean;
   isEdited?: boolean;
   tags?: string[];
+  createdAt?: string;
 }
 
 export interface Column {

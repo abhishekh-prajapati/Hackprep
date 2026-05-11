@@ -263,7 +263,7 @@ export default function ProjectWorkspacePage({ params }: { params: Promise<{ pro
 
               <div className={styles.boardWrapper}>
                 <TaskBoard 
-                  userProfile={user || { name: 'User', avatar: '' }} 
+                  userProfile={{ name: user?.name || 'User', avatar: user?.profilePhoto || '' }} 
                   tasks={localTasks} 
                   setTasks={setLocalTasks} 
                   projectId={projectId}

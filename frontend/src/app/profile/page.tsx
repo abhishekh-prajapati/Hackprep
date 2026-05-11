@@ -118,14 +118,14 @@ export default function ProfilePage() {
   const updateExperience = (id: string, field: keyof Experience, value: string) => {
     setForm({
       ...form,
-      experiences: form.experiences.map(exp => exp.id === id ? { ...exp, [field]: value } : exp)
+      experiences: form.experiences.map((exp: Experience) => exp.id === id ? { ...exp, [field]: value } : exp)
     });
   };
 
   const removeExperience = (id: string) => {
     setForm({
       ...form,
-      experiences: form.experiences.filter(exp => exp.id !== id)
+      experiences: form.experiences.filter((exp: Experience) => exp.id !== id)
     });
   };
 
@@ -256,7 +256,7 @@ export default function ProfilePage() {
             <div className="space-y-6">
               {form.experiences.length > 0 ? (
                 <div className="grid grid-cols-1 gap-6">
-                  {form.experiences.map((exp) => (
+                  {form.experiences.map((exp: Experience) => (
                     <div key={exp.id} className="group relative rounded-2xl border border-arctic-border bg-arctic-canvas/30 p-6 transition-all hover:border-arctic-blue/30 hover:bg-white hover:shadow-xl hover:shadow-arctic-navy/5">
                       {editing ? (
                         <div className="space-y-4">
