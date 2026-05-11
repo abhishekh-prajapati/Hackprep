@@ -19,6 +19,7 @@ interface User {
   wins?: number;
   projectsCompleted?: number;
   isOnboardingCompleted: boolean;
+  experiences?: any[];
 }
 
 interface AuthContextType {
