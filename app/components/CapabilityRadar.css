@@ -1,0 +1,205 @@
+/* ───────────────────────────────────────────────────────────
+   CAPABILITY RADAR  –  Component Styles
+─────────────────────────────────────────────────────────── */
+
+/* Outer wrapper */
+.cr-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* SVG container – needed for absolute tooltip positioning */
+.cr-svg-container {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.cr-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Polygon hover animation */
+.cr-polygon {
+  transition: fill-opacity 0.25s ease, stroke-width 0.25s ease;
+}
+
+/* Vertex dots */
+.cr-dot {
+  transition: r 0.2s ease, fill-opacity 0.2s ease;
+}
+
+/* ── Floating tooltip ───────────────────────────────────── */
+.cr-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  z-index: 100;
+  animation: cr-tooltip-in 0.15s ease;
+}
+
+@keyframes cr-tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cr-tooltip-project {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cr-tooltip-metric {
+  font-size: 12px;
+  color: #bbb;
+  font-weight: 500;
+}
+
+.cr-tooltip-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* ── Legend ─────────────────────────────────────────────── */
+.cr-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.cr-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  background: #f9f9f9;
+  font-size: 13px;
+}
+
+.cr-legend-item:hover,
+.cr-legend-active {
+  background: #fff;
+}
+
+.cr-legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cr-legend-label {
+  font-weight: 600;
+  color: #333;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cr-legend-score {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+  line-height: 1.4;
+}
+
+/* ── Per-project breakdown on hover ─────────────────────── */
+.cr-breakdown {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px 20px;
+  animation: cr-breakdown-in 0.2s ease;
+}
+
+@keyframes cr-breakdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cr-breakdown-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.cr-breakdown-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cr-breakdown-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cr-breakdown-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.cr-breakdown-bar-bg {
+  flex: 1;
+  height: 5px;
+  background: #ebebeb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.cr-breakdown-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cr-breakdown-val {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a1a1a;
+  width: 32px;
+  text-align: right;
+  flex-shrink: 0;
+}
