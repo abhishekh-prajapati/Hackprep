@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --hp-bg: #f6f3ee;
+  --hp-sidebar: #f3f0ea;
+  --hp-card: #fffdf9;
+
+  --hp-primary: #ff5a1f;
+  --hp-primary-dark: #e14d16;
+
+  --hp-dark: #1b0d0d;
+  --hp-dark-2: #2a1515;
+
+  --hp-text: #1f1f1f;
+  --hp-text-light: #6b6b6b;
+
+  --hp-border: #e7dfd4;
+
+  --hp-success: #22c55e;
+  --hp-warning: #f59e0b;
+}
+
+body {
+  background: var(--hp-bg);
+  color: var(--hp-text);
+  font-family: var(--font-inter), sans-serif;
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 253, 249, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--hp-border);
+  }
+}
